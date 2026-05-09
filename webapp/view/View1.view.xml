@@ -1,0 +1,100 @@
+<mvc:View controllerName="appcrud.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+    <Page id="page" title="{i18n>title}">
+        <VBox class="sapUiSmallMargin">
+            <f:Form id="formulario"
+                editable="true">
+                <f:title>
+                    <core:Title text="Dados Pessoais" />
+                </f:title>
+                <f:layout>
+                    <f:ResponsiveGridLayout
+                        labelSpanXL="3"
+                        labelSpanL="3"
+                        labelSpanM="3"
+                        labelSpanS="12"
+                        adjustLabelSpan="false"
+                        emptySpanXL="4"
+                        emptySpanL="4"
+                        emptySpanM="4"
+                        emptySpanS="0"
+                        columnsXL="1"
+                        columnsL="1"
+                        columnsM="1"
+                        singleContainerFullSize="false" />
+                </f:layout>
+                <f:formContainers>
+                    <f:FormContainer>
+                        <f:formElements>
+                            <f:FormElement label="ID">
+                                <f:fields>
+                                    <Input  value="{usuarios>/ID}" 
+                                            id="id" 
+                                            type="Text"
+                                            editable="false"/>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="Nome">
+                                <f:fields>
+                                    <Input  value="{usuarios>/Nome}" 
+                                            id="nome" 
+                                            type="Text"/>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="Idade">
+                                <f:fields>
+                                    <Input  value="{usuarios>/Idade}" 
+                                            id="idade" 
+                                            type="Number">
+                                    </Input>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="E-mail">
+                                <f:fields>
+                                    <Input  value="{usuarios>/Email}" 
+                                            id="email" 
+                                            type="Email"/>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="Cidade/Estado">
+                                <f:fields>
+                                    <Input  value="{usuarios>/Cidade}" 
+                                            id="cidade" 
+                                            type="Text">
+                                        <layoutData>
+                                            <l:GridData span="XL1 L2 M2 S4" />
+                                        </layoutData>
+                                    </Input>
+                                    <Input  value="{usuarios>/Estado}" 
+                                            id="estado" 
+                                            type="Text"/>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="Sexo">
+                                <f:fields>
+                                    <Select id="sexo" selectedKey="{usuarios>/Sexo}">
+                                        <items>
+                                            <core:Item text="Masculino" key="Masculino"/>
+                                            <core:Item text="Feminino" key="Feminino"/>
+                                        </items>
+                                    </Select>
+                                    <Button id="clear" press="onClear" text="Limpar campos" type="Reject" icon="sap-icon://delete"></Button>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="">
+                                <f:fields>
+                                    <Button text="Cadastrar" press="onRegister" type="Emphasized"></Button>
+                                    <Button text="Visualizar" press="onView" type="Neutral"></Button>
+                                </f:fields>
+                            </f:FormElement>
+                        </f:formElements>
+                    </f:FormContainer>
+                </f:formContainers>
+            </f:Form>
+        </VBox>
+    </Page>
+</mvc:View>
